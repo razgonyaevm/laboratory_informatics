@@ -43,8 +43,8 @@ def convert_to_ten(numb: str, base_from) -> float:
             coin = len(numb)
             ans = 0
             for i in range(len(numb)):
-                ans += numb[i] * factorial(coin)
-                coin += 1
+                ans += int(numb[i]) * factorial(coin)
+                coin -= 1
             return ans
         elif base_from == 'fib':
             # перевод из фибоначчиевой системы счисления (число должно быть целым)
@@ -121,3 +121,20 @@ def convert_to_base(numb: float, base_to) -> str:
                 numb //= coin
                 coin += 1
             return ans[::-1]
+
+
+def convert_another(numb: int):
+    return convert_to_ten(str(numb), 'fib')
+
+
+
+print(convert_to_base(36734, 13))  # задача номер 1
+print(convert_to_ten('20046', 7))  # задача номер 2
+print(convert_to_base(convert_to_ten('30242', 5), 15))  # задача номер 3
+print(convert_to_base(87.71, 2))  # задача номер 4
+print(convert_to_ten('0.001111', 2))  # задача номер 8
+print(convert_to_ten('C9.CB', 16))  # задача номер 9
+print(convert_to_ten('651111', 'fac'))  # задача номер 10
+print(convert_to_base(117, 'fib'))  # задача 11
+print(convert_to_ten('1000010101', 'fib'))  # задача 12
+print(convert_to_ten('1678', -10))  # задача 13
