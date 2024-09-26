@@ -81,7 +81,7 @@ def convert_to_base(numb: float, base_to) -> str:
                     numb //= base_to
                 return ans[::-1]
         else:
-            # число на входе в формате десятичной дроби (основание должно быть положительным)
+            # число на входе в формате десятичной дроби (основание и число должно быть положительным)
             real = int(str(numb)[:str(numb).index('.')])
             img = float('0' + str(numb)[str(numb).index('.'):])
 
