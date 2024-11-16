@@ -48,9 +48,16 @@ for i in range(1, len(new_lines)):
         if not (i in flag):
             if i in index_space:
                 continue
-            new_new_lines.append(' ' * 2 * coin + new_lines[i])
+            if new_lines[i].count(': ') == 1:
+                new_new_lines.append(' ' * 2 * coin + new_lines[i])
+            else:
+                new_new_lines.append(' ' * 2 * coin + new_lines[i][:new_lines[i].index(': ') + 2] + '"' + new_lines[i][new_lines[i].index(': ') + 3:] + '"')
         else:
-            new_new_lines.append(' ' * 2 * coin + '- ' + new_lines[i])
+            if new_lines[i].count(': ') == 1:
+                new_new_lines.append(' ' * 2 * coin + '- ' + new_lines[i])
+            else:
+                new_new_lines.append(' ' * 2 * coin + '- ' + new_lines[i][:new_lines[i].index(': ') + 2] + '"' + new_lines[i][new_lines[i].index(': ') + 3:] + '"')
+
             coin += 1
             coin_leftshift += 1
 
