@@ -27,7 +27,7 @@ fig = go.Figure()
 for i in range(4):
     current_date = reverse_date_mapping[i]  # Получаем дату по индексу
     for metric in metrics:
-        trace_name = f"{current_date} - {metric}"  # Имя для текущего графика
+        trace_name = f"{current_date} - {metric[1:-1].lower().capitalize()}"  # Имя для текущего графика
         fig.add_trace(go.Box(y=data_by_date[metric][i], name=trace_name))
 
 # Настройка макета графика
