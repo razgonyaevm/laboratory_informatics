@@ -23,6 +23,12 @@ def hamming_7_4(code: str) -> (str, str):
 
     elif s2 and s3:
         return f'{i1}{i2}{(not i3) * 1}{i4}', 'ошибка в бите i3'
+    elif s3:
+        return f'{i1}{i2}{i3}{i4}', 'ошибка в бите r3'
+    elif s2:
+        return f'{i1}{i2}{i3}{i4}', 'ошибка в бите r2'
+    elif s1:
+        return f'{i1}{i2}{i3}{i4}', 'ошибка в бите r1'
 
     return f'{i1}{i2}{i3}{i4}', 'ошибок нет или их не удалось выявить'
 
